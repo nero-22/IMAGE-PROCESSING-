@@ -1,158 +1,84 @@
-#"Object-Detection-Using-Image-Processing"
+# 🚀 Object Detection Using Image Processing
 
-A final-year B.Tech project focused on real-time object detection using image processing and deep learning with the YOLOv3 model and OpenCV.
-
-Table of Contents
-
-Introduction
-
-Problem Statement
-
-Proposed Solution
-
-Tech Stack
-
-System Architecture
-
-Installation
-
-Usage
-
-Sample Output
-
-Results
-
-Future Scope
-
-Contributors
-
-
+A final-year B.Tech project focused on **real-time object detection** using deep learning (YOLOv3) and OpenCV in Python.
 
 ---
 
-Introduction
+## 📚 Table of Contents
+- [Overview](#overview)
+- [🎯 Problem Statement](#-problem-statement)
+- [💡 Proposed Solution](#-proposed-solution)
+- [🧰 Tech Stack](#-tech-stack)
+- [⚙️ Installation](#️-installation)
+- [▶️ Usage](#️-usage)
+- [📷 Sample Output](#-sample-output)
+- [📊 Results](#-results)
+- [🔭 Future Scope](#-future-scope)
+- [👥 Contributors](#-contributors)
 
-Object detection is a critical application of image processing that enables machines to identify and locate multiple objects in images or video. This project uses the YOLOv3 deep learning model integrated with OpenCV in Python to detect and label objects in real-time.
+---
 
-Problem Statement
+## Overview
+<details>
+<summary>Click to expand</summary>
 
-While image data is abundant, deriving meaningful insight from it in real time remains a challenge. Traditional detection methods fail to scale, generalize, or deliver real-time results. This project addresses:
+Object detection enables machines to understand visual data by identifying objects in images and videos.
 
-Scalability of processing visual data
+This project integrates the YOLOv3 model with OpenCV to:
+- Detect multiple objects in a single image
+- Label them with bounding boxes
+- Display real-time output with confidence scores
 
-Balancing speed and accuracy
+</details>
 
-Dealing with occlusions and lighting variations
+---
 
+## 🎯 Problem Statement
+<details>
+<summary>Click to expand</summary>
 
-Proposed Solution
+While cameras generate large volumes of visual data, much of it remains unused without intelligent systems. Traditional detection systems:
+- Don't scale well
+- Perform poorly in real-time
+- Struggle with lighting/occlusion
 
-We implement a YOLOv3-based detection pipeline that:
+</details>
 
-Uses pre-trained COCO dataset weights
+---
 
-Detects multiple objects in real-time
+## 💡 Proposed Solution
+<details>
+<summary>Click to expand</summary>
 
-Outputs labeled bounding boxes and confidence scores
+We built a Python-based system that:
+- Uses YOLOv3 with OpenCV
+- Detects objects with high accuracy
+- Processes real-time camera input
+- Outputs labeled bounding boxes
 
-Works efficiently on mid-range hardware
+</details>
 
+---
 
-Tech Stack
+## 🧰 Tech Stack
+- **Language:** Python 3.x
+- **Libraries:** OpenCV, NumPy
+- **Model:** YOLOv3 (pre-trained on COCO dataset)
+- **Frameworks:** cv2.dnn module (for inference)
 
-Python 3.x
+---
 
-OpenCV 4.x
+## ⚙️ Installation
 
-NumPy
-
-YOLOv3 (weights + config)
-
-COCO dataset (for object classes)
-
-
-System Architecture
-
-graph TD
-    A[Input Image/Video] --> B[Preprocessing]
-    B --> C[YOLOv3 Inference]
-    C --> D[Post-processing (NMS)]
-    D --> E[Labeled Output with Bounding Boxes]
-
-Installation
-
-1. Clone the repository:
-
+```bash
+# Clone the repo
 git clone https://github.com/yourusername/object-detection-yolo
 cd object-detection-yolo
 
-
-2. Install dependencies:
-
+# Install dependencies
 pip install opencv-python numpy
 
-
-3. Download YOLOv3 weights and config:
-
-yolov3.weights
-
-yolov3.cfg
-
-Place them in the project directory.
-
-
-
-
-Usage
-
-import cv2
-
-net = cv2.dnn.readNet("yolov3.weights", "yolov3.cfg")
-img = cv2.imread("sample.jpg")
-blob = cv2.dnn.blobFromImage(img, 1/255.0, (416, 416), swapRB=True, crop=False)
-net.setInput(blob)
-outputs = net.forward(output_layers)
-
-# Post-processing, draw bounding boxes and labels...
-
-You can also run the detection on live camera feed for real-time output.
-
-Sample Output
-
-Image 1: Detected dog (98%), bicycle (88%)
-
-Live Video: 15–20 FPS real-time detection for mobile phones, laptops, and people
-
-
-Results
-
-Average Accuracy: 90–95% on COCO dataset
-
-Processing Time: ~50ms/frame on CPU
-
-
-Future Scope
-
-Deploy on edge devices using model optimization (pruning, quantization)
-
-Custom object detection through retraining
-
-Integrate with video analytics and tracking
-
-Deploy as a web or mobile application
-
-
-Contributors
-
-Jebas Angel – Reg. No: 961222243010
-
-Godson – Reg. No: 961222243012
-
-Rahul – Reg. No: 96122243018
-
-Shyam – Reg. No: 961222243021
-
-
-Project Guide: Jovita Mam
-Loyola Institute of Technology and Science, Thovalai
-Department of Artificial Intelligence and Data Science
+# Download YOLOv3 files
+# 1. yolov3.weights: https://pjreddie.com/media/files/yolov3.weights
+# 2. yolov3.cfg: https://github.com/pjreddie/darknet/blob/master/cfg/yolov3.cfg
+# 3. coco.names: https://github.com/pjreddie/darknet/blob/master/data/coco.names
